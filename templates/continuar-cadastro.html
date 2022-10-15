@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://www.bancopan.com.br/lumis-theme/br/com/bancopan/institucional/theme/banco-pan-institucional/estrutura/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="../static/css/confirma-dados.css">
+
+
+  <title>Banco PAN | Cadastro</title>
+</head>
+
+<body id="checkout-page">
+  <!-- <div id="message" class="hide">
+      <div class="alert alert-light" role="alert">
+        <h4>Mensagem:</h4>
+        <p></p>
+        <button id="close-message" type="button" class="btn btn-secondary">
+          Fechar
+        </button>
+      </div>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- Modal Cofirmação -->
+  <div class="modal fade" id="modal-confirmacao" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h3>Os seus dados estão corretos?</h3>
+          <h6></h6>
+          <h6></h6>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" id="confirmar">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Principal -->
+  <main class="container my-4">
+    <section class="card">
+      <div class="card-header p-4">
+        <div class="row">
+          <div class="col">
+            <h3 class="mb-0">Continue seu cadastro aqui no PAN!</h3>
+          </div>
+        </div>
+      </div>
+
+      <form method="post" action="" class="form" id="formContinuar">
+        <input type="hidden" name="email" id="email" value="{{email}}">
+        <input type="hidden" name="senha" id="senha" value="{{senha}}">
+        <div class="card-body">
+          <!-- Linha 1 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="nome">Nome *</label>
+                <input type="text" class="form-control" name="nome" id="nome" required>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="nome">Sobrenome *</label>
+                <input type="text" class="form-control" name="sobrenome" id="sobrenome" required>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="data-nasc">Data de Nascimento *</label>
+                <input class="form-control" type="date" required="required" maxlength="8" name="data-nasc"
+                  id="data-nasc" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 2 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="cpf">CPF *</label>
+                <input type="text" placeholder="000.000.000-00" class="form-control cpf" name="cpf" id="cpf"
+                  onblur="validarCPF(this)" required>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="rg">RG</label>
+                <input type="text" placeholder="00.000.000-0" class="form-control rg" name="rg" id="rg" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 3 -->
+          <!-- <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <input type="checkbox" class="cnpjHabilitarTeclado" onclick="HTeclado();" />
+                <label for="cnpj">CNPJ</label>
+                <input placeholder="00.000.000/0000-00" type="text" class="form-control cnpjSentidoTeclado" name="cnpj"
+                  disabled>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="razao">Razão Social</label>
+                <input type="text" class="form-control razaoSentidoTeclado" name="razao" disabled>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="status">Status da empresa</label>
+                <input type="text" class="form-control statusSentidoTeclado" name="status" disabled>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="tipocnpj">Tipo da empresa</label>
+                <input type="text" class="form-control tipocnpjSentidoTeclado" name="tipocnpj" disabled>
+              </div>
+            </div>
+          </div> -->
+
+
+          <div class="row">
+            <div class="col">
+              <hr>
+            </div>
+          </div>
+
+          <!-- Linha 4 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="Celular">Celular *</label>
+                  <input type="text" placeholder="(00) 90000-0000" class="form-control celular" name="celular"
+                    id="celular" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" placeholder="(00) 0000-0000" class="form-control telefone" name="telefone"
+                    id="telefone">
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="telefone_com">Telefone Comercial</label>
+                  <input type="text" placeholder="(00) 0000-0000" class="form-control telefone_com" name="telefone_com"
+                    id="telefone_com">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 5 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Estado Civil *</label>
+                <select class="form-control" name="estado-civil" id="estado-civil" required>
+                  <option value="" disabled selected>Selecione seu estado civil</option>
+                  <option value="Solteiro">Solteiro</option>
+                  <option value="Casado">Casado</option>
+                  <option value="Divorciado">Divorciado</option>
+                  <option value="Separado">Separado</option>
+                  <option value="Viúvo">Viúvo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="genero">Qual seu sexo?</label>
+                <div class="d-flex flex-column">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genero" id="op-masc" value="masc">
+                    <label class="form-check-label" for="op-masc">Masculino</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genero" id="op-fem" value="fem">
+                    <label class="form-check-label" for="op-fem">Feminino</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="raca">Qual é a sua cor ou raça/etnia?</label>
+                <div class="d-flex flex-column">
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="raca" id="op-branca" value="branca">
+                    <label class="form-check-label" for="op-branca">Branca</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="raca" id="op-preta" value="preta">
+                    <label class="form-check-label" for="op-preta">Preta</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="raca" id="op-parda" value="parda">
+                    <label class="form-check-label" for="op-parda">Parda</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="raca" id="op-amarela" value="amarela">
+                    <label class="form-check-label" for="op-amarela">Amarela</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="raca" id="op-indigena" value="indigena">
+                    <label class="form-check-label" for="op-indigena">Indígena</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 6 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="profissao">Profissão *</label>
+                <select class="form-control" name="profissao" id="profissao" required>
+                  <option value="" disabled selected>Selecione sua profissão</option>
+                  <option value="Engenheiro(a)">Engenheiro(a)</option>
+                  <option value="Analista">Analista</option>
+                  <option value="Administrador(a)">Administrador(a)</option>
+                  <option value="Banqueiro(a)">Banqueiro(a)</option>
+                  <option value="Programador(a)">Programador(a)</option>
+                  <option value="Advogado(a)">Advogado(a)</option>
+                  <option value="Jornalista">Jornalista</option>
+                  <option value="Médico(a)">Médico(a)</option>
+                  <option value="Dentista">Dentista</option>
+                  <option value="Designer">Designer</option>
+                  <option value="Autônomo">Autônomo</option>
+                  <option value="Vendedor(a)">Vendedor(a)</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="renda">Renda Mensal *</label>
+                <input type="text" class="form-control renda" name="renda" id="renda" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 7 -->
+          <div class="row">
+            <div class="col">
+              <hr>
+            </div>
+          </div>
+
+          <!-- Linha 8 -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="apelido">Apelido *</label>
+                <input type="text" class="form-control email" name="apelido" id="apelido"
+                  placeholder="Digite um apelido para o endereço"">
+              </div>
+            </div>
+          </div>
+          <!-- Linha 9 -->
+          <div class=" row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="cep">CEP *</label>
+                    <input type="text" placeholder="00000-000" class="form-control cep" name="cep" id="cep"
+                      onblur="pesquisacep(this.value);" required>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" name="bairro" id="bairro" data-input disabled>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Linha 9 -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="rua">Logradouro</label>
+                    <input type="text" class="form-control" name="rua" id="rua" data-input disabled>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="numero">Número *</label>
+                    <input type="number" class="form-control" name="numero" id="numero">
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" name="complemento" id="complemento">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Linha 10 -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" name="cidade" id="cidade" data-input disabled>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="uf">UF</label>
+                    <input class="form-control" name="uf" id="uf" data-input disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col text-right">
+                  <button type="button" class="btn btn-primary botaoConf">Confirmar Cadastro</button>
+                </div>
+              </div>
+            </div>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script type="text/javascript" src="../static/js/jquery.mask.js"></script>
+  <script type="text/javascript" src="../static/js/continuar-cadastro.js"></script>
+
+
+</body>
+
+</html>
