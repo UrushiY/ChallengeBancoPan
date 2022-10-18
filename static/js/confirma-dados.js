@@ -36,58 +36,6 @@ async function cadastroAws(
   })
 }
 
-// $("#btn-salvar").click(() => $("#modal-confirmacao").modal('show'));
-
-// $("#btn-confirmar").click(async () => {
-//   let nome = $('#nome').val();
-//   let sobrenome = $('#sobrenome').val();
-//   let data_nasc = $('#data-nasc').val();
-//   let cpf = $('#cpf').val();
-//   let rg = $('#rg').cleanVal();
-
-//   let genero = $('#op-masc').prop('checked') == true ? 'masc' : 'fem';
-
-//   let raca = '';
-
-//   if ($('#op-branca').prop('checked') == true) {
-//     raca = 'branca';
-//   } else if ($('#op-preta').prop('checked') == true) {
-//     raca = 'preta';
-//   } else if ($('#op-parda').prop('checked') == true) {
-//     raca = 'parda';
-//   } else if ($('#op-amarela').prop('checked') == true) {
-//     raca = 'amarela';
-//   } else if ($('#op-indigena').prop('checked') == true) {
-//     raca = 'indigena';
-//   }
-
-//   let email = $('#email').val();
-//   let senha = $('#senha').val();
-//   let ec = $('#estado-civil').val();
-//   let profissao = $('#profissao').val();
-//   let renda = $('#renda').val();
-
-//   let celular = $('#celular').cleanVal();
-//   let tel = $('#telefone').cleanVal();
-//   let tel_com = $('#telefone_com').cleanVal();
-
-//   let apelido = $('#apelido').val();
-//   let cep = $('#cep').cleanVal();
-//   let bairro = $('#bairro').val();
-//   let logradouro = $('#rua').val();
-//   let cidade = $('#cidade').val();
-//   let uf = $('#uf').val();
-//   let numero = $('#numero').val();
-//   let complemento = $('#complemento').val();
-
-//   res = await cadastroAws(nome, sobrenome, data_nasc, cpf, rg, genero, raca, email, senha, ec, profissao, renda,
-//     celular, tel, tel_com,
-//     apelido, cep, bairro, logradouro, cidade, uf, numero, complemento);
-
-//   window.location.assign(`/confirma-prod?cpf=${cpf}`);
-// });
-
-
 $('#btn-salvar').on('click', function (e) {
   var button = $('.botaoConf');
   button.prop('disabled', true);
@@ -169,66 +117,6 @@ $('#btn-salvar').on('click', function (e) {
   }
 
 });
-
-// function HTeclado() {
-
-//   if ($(".cnpjHabilitarTeclado").prop('checked') === true) {
-//     $(".cnpjSentidoTeclado").prop("disabled", false);
-
-//   } else {
-//     $(".cnpjSentidoTeclado").prop("disabled", true).val("");
-//     $(".razaoSentidoTeclado").prop("disabled", true).val("");
-//     $(".statusSentidoTeclado").prop("disabled", true).val("");
-//     $(".tipocnpjSentidoTeclado").prop("disabled", true).val("");
-//   }
-// }
-
-
-// function HTeclado2() {
-//   if ($(".outroHabilitarTeclado").prop('checked') === true) {
-//     $(".outroSentidoTeclado").prop("disabled", false);
-//   } else {
-//     $(".outroSentidoTeclado").prop("disabled", true).val("");
-//   }
-//   $('.outroHabilitarTeclado:not(:checked)').prop('.outroSentidoTeclado(:disabled)', true);
-// }
-
-
-
-// document.querySelector('.cpf').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/);
-//   e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '-' + x[4];
-// });
-
-// document.querySelector('.rg').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,1})/);
-//   e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '-' + x[4] || x$;
-// });
-
-// document.querySelector('.cep').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,5})(\d{0,3})/);
-//   e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[5] ? +x[5] : '');
-// });
-
-// document.querySelector('.celular').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-//   e.target.value = !x[2] ? x[1] : '(' + x[1] + ')' + ' ' + x[2] + '-' + x[3];
-// });
-
-// document.querySelector('.telefone').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,4})(\d{0,4})/);
-//   e.target.value = !x[2] ? x[1] : '(' + x[1] + ')' + ' ' + x[2] + '-' + x[3];
-// });
-
-// document.querySelector('.telefone_com').addEventListener('input', function (e) {
-//   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,4})(\d{0,4})/);
-//   e.target.value = !x[2] ? x[1] : '(' + x[1] + ')' + ' ' + x[2] + '-' + x[3];
-// });
-
-
-
-
-
 
 const addressForm = document.querySelector("#form");
 const cepInput = document.querySelector("#cep");
@@ -405,8 +293,9 @@ $(document).ready(async () => {
   $(`#op-${raca}`).prop('checked', true);
 
   $('#email').val(dados.EMAIL);
-  $('#senha').val(dados.SENHA);
+  // $('#senha').val(dados.SENHA);
   $('#estado-civil').val(dados.ESTADOCIV);
+  console.log(dados.PROFISSAO);
   $('#profissao').val(dados.PROFISSAO);
   $('#renda').val(dados.RENDA);
 
