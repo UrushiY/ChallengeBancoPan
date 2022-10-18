@@ -1,5 +1,4 @@
 import json
-# import sys
 
 from flask import Flask, render_template, request
 
@@ -9,22 +8,7 @@ from app.controller.TelefoneController import *
 from app.controller.ContaController import *
 from app.controller.ContratoController import *
 
-# sys.path.append('C:\Users\guiol\Documents\Projects\BancoPan\banco-pan\app\controller\=')
-
 application = Flask(__name__)
-
-# 1 - Capturar parâmetros da requisição POST
-# email
-# senha
-
-# 2 - Executo um método do controlador,
-#       passando os parâmetros obtidos
-
-# 3 - Lidar com o retorno do método, sendo ele
-#       true ou false
-
-# 4 - Retornar a resposta em json
-
 
 @application.route("/", methods=["GET"])
 def index():
@@ -36,7 +20,7 @@ def entrada():
     cpf = request.form.get("cpf")
     senha = request.form.get("senha")
 
-    print(cpf, senha)
+    
     cliente = ClienteController()
 
     """
@@ -47,7 +31,7 @@ def entrada():
 
     resultado = cliente.autenticarAws(cpf, senha)
 
-    if (not resultado):
+    if resultado == 0:
         """
             Verifica se o registro do cliente existe dentro do banco de dados (Banco PAN)
             Parâmetros: String CPF/CNPJ, String Senha
@@ -55,10 +39,13 @@ def entrada():
         """
         resultado = cliente.autenticarPan(cpf, senha)
 
-        if (not resultado):
+        if not resultado:
             return json.dumps({'mensagem': 'usuario nao encontrado'})
 
         return json.dumps({'mensagem': 'usuario com dados duplicados', 'cpf': cpf})
+
+    if resultado == 1:
+        return json.dumps({'mensagem': 'usuario nao encontrado'})
 
     return json.dumps({'mensagem': 'usuario autenticado'})
 
@@ -130,7 +117,8 @@ def loading():
 def confirma():
     if request.method == "GET":
         cpf = request.args.get("cpf")
-        return render_template('confirma-dados.html', cpf=cpf)
+        senha = request.args.get("senha")
+        return render_template('confirma-dados.html', cpf=cpf, senha=senha)
 
 
 @application.route("/consulta", methods=["POST"])
@@ -142,14 +130,13 @@ def consulta():
 
     str_end = EnderecoController.pesquisarEndPan(dados['CODCLIENTE'])
     endereco = json.loads(str_end)
-    # print(endereco)
 
     str_tel = TelefoneController.buscarTelefone(dados['CODCLIENTE'])
     telefone = json.loads(str_tel)
-    # print(telefone)
+   
 
     nsi = {'dados': dados, 'endereco': endereco, 'telefone': telefone}
-    # print(nsi)
+   
 
     return json.dumps(nsi)
 

