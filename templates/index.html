@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.bancopan.com.br/lumis-theme/br/com/bancopan/institucional/theme/banco-pan-institucional/estrutura/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/css/login.css">
+
+  <title>Banco PAN | Entrar</title>
+</head>
+
+<body>
+  <!-- Modal Login -->
+  <div class="modal fade" id="modal-aviso" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Tem um tempinho?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5>Ainda precisamos confirmar alguns de seus dados!</h5>
+          <h6>Por motivos de segurança e personalização da sua experiência, pedimos que você confirme alguns
+            dados seus para nós.</h6>
+          <h6>Não demora nem 5 minutos!</h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ir para minha conta</button>
+          <a href="/confirma" class="btn btn-primary" id="">Atualizar meus dados</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Principal -->
+  <main class="container my-5 w-login">
+    <section class="card">
+      <div class="card-header text-center p-3">
+        <img
+          src='https://www.bancopan.com.br/bancopan-institucional/conteudo/estrutura/assets/img/mh-icons/mh-icon--logo-desktop.svg'
+          alt="Logo Banco Pan">
+      </div>
+      <div class="card-body">
+        <form method="post" class="form">
+          <h5 class="text-center mt-3">Entrar na área do Cliente</h5>
+          <div class="form-group mt-4">
+
+            <label for="cpf">CPF</label>
+            <input type="text" name="cpf" class="form-control cpf" id="cpf" placeholder="Digite seu CPF" required>
+
+          </div>
+          <div class="form-group mt-4">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite sua senha" required>
+          </div>
+          <div class="checkbox">
+            <label>
+
+            </label>
+          </div>
+          <div class="form-group mt-4 text-center">
+            <!-- <a href="/confirma" type="submit" id="submit" class="btn btn-primary">Entrar</a> -->
+            <!-- data-toggle="modal" data-target="#modal-aviso" -->
+            <button type="button" id="submit" class="btn btn-primary">Entrar</button>
+          </div>
+          <div class="form-group text-center mt-5">
+            <p>Não possui cadastro?</p>
+            <a href="/cadastro" class="btn-cadastro fs-10">Cadastrar</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+  crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script type="text/javascript" src="../static/js/jquery.mask.js"></script>
+  <script type="text/javascript" src="../static/js/index.js"></script>
+</body>
+
+</html>

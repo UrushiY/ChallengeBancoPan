@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://www.bancopan.com.br/lumis-theme/br/com/bancopan/institucional/theme/banco-pan-institucional/estrutura/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/css/confirma-dados.css">
+
+  <title>Banco PAN | Confirmar produtos</title>
+</head>
+
+
+<!-- <body id="checkout-page"> -->
+
+<body>
+  <div id="loader" class="wrapper">
+    <div class="spinner-border text-primary spin" role="status"></div>
+  </div>
+
+  <!-- Modal Cofirmação -->
+  <div class="modal fade" id="modal-confirmacao" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h3>Confirmar as mudanças?</h3>
+          <h6></h6>
+          <h6></h6>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmar">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Principal -->
+  <main class="container my-4">
+    <section class="card">
+      <div class="card-header p-4">
+        <div class="row">
+          <div class="col">
+            <h3 class="mb-0">Confirme seus Produtos</h3>
+          </div>
+        </div>
+      </div>
+
+      <form action="" class="form">
+        <input type="hidden" id="cpf" value="{{ cpf }}">
+        <input type="hidden" id="codCliente" value="{{ codCliente }}">
+        <div class="card-body" id="div-produtos">
+
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col text-right">
+              <button type="button" class="btn btn-info" id="novo-endereco">Cadastrar novo Endereço</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-confirmacao">Salvar
+                Alterações</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="../static/js/jquery.mask.js"></script>
+  <script type="text/javascript" src="../static/js/produtos.js"></script>
+</body>
+
+</html>

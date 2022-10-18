@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+}
+
+.w-login {
+  width: 25vw !important;
+  /* width: 30vw !important; */
+}
+
+@media(max-width: 1300px) {
+  .w-login {
+    width: 45vw !important;
+  } 
+}
+@media(max-width: 900px) {
+  .w-login {
+    width: 60vw !important;
+  } 
+}
+@media(max-width: 600px) {
+  .w-login {
+    width: 75vw !important;
+  } 
+}
+@media(max-width: 420px) {
+  .w-login {
+    width: 95vw !important;
+  } 
+}
+
+.h-100 {
+  min-height: 100vh;
+}
+
+.fs-10 {
+  font-size: 0.9rem;
+}
+
+body {
+  background-color: #07b2fd;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: rgb(48, 171, 224);
+
+}
+
+.btn-outline-primary,
+.btn-cadastro {
+  color: #07b2fd;
+}
+
+.btn-cadastro {
+  font-weight: 500;
+}
+
+.texto-topo {
+  font-size: 0.875rem;
+  color: rgb(80, 80, 80)
+}
+
+fieldset {
+  border: none;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 4px;
+  border-radius: 5px;
+
+}

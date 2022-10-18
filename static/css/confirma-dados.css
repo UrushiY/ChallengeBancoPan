@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+
+body {
+    background-color: #07b2fd;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
+/* for IE10 */
+.dropdown-container select::-ms-expand {
+    display: none;
+}
+
+.wrapper {
+    position: fixed;
+    z-index: 10;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .spin {
+    width: 5rem;
+    height: 5rem;
+  }
+
+/* .hide{
+    display: none !important;
+} */
+
+/* #fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#fade .spinner-border{
+    width: 5rem;
+    height: 5rem;
+} */
