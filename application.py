@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 
 from app.controller.ClienteController import *
 from app.controller.EnderecoController import *
+from app.controller.Limpar import Limpar
 from app.controller.TelefoneController import *
 from app.controller.ContaController import *
 from app.controller.ContratoController import *
@@ -209,6 +210,15 @@ def novo_endereco():
 
         return json.dumps({'mensagem': 'endereco cadastrado'})
 
+
+@application.route("/limpar", methods=["GET"])
+def limpar():
+    if request.method == 'GET':
+        if not Limpar.limparAws():
+            return json.dumps({'mensagem': 'erro ao deletar registros'})
+
+        return json.dumps({'mensagem': 'registros deletados'})
+        # return render_template('index.html')
 
 # colocar o site no ar
 if __name__ == "__main__":

@@ -100,11 +100,11 @@ $('#btn-salvar').on('click', function (e) {
       res = await cadastroAws(nome, sobrenome, data_nasc, cpf, rg, genero, raca, email, senha, ec, profissao, renda,
         celular, tel, tel_com,
         apelido, cep, bairro, logradouro, cidade, uf, numero, complemento);
-
-      if (res.mensagem == 'erro no cadastro') {
-
-      }
-      Swal.fire({
+        
+        if (res.mensagem == 'erro no cadastro') {
+          
+        }
+        Swal.fire({
         icon: 'success',
         title: 'Dados Confirmados!',
         text: 'Redirecionando para a tela de confirmação de produtos',
@@ -113,6 +113,8 @@ $('#btn-salvar').on('click', function (e) {
         window.location.assign(`/confirma-prod?cpf=${cpf}`);
       })
     });
+    
+    button.prop('disabled', false);
     return true;
   }
 
