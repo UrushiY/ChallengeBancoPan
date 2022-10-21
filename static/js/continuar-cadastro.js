@@ -232,6 +232,7 @@ $('.botaoConf').on('click', async function (e) {
     return false
   } else {
     $('#modal-confirmacao').modal('show');
+    button.prop('disabled', false);
     $('#confirmar').click(async() => {
 
       res = await cadastroAws(nome, sobrenome, data_nasc, cpf, rg, genero, raca, email, senha, ec, profissao, renda,

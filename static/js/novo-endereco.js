@@ -134,7 +134,7 @@ $('#btn-confirmar').click(async () => {
     }
 
     $('#modal-confirmacao').modal('show');
-
+    button.prop('disabled', false);
     $('#confirmar').click(async () => {
         res = await cadastroEndereco(cep, uf, cidade, bairro, logradouro, numero, apelido, complemento, codCliente);
 
